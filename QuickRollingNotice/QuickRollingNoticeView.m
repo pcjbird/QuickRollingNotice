@@ -11,7 +11,9 @@
 
 
 @interface QuickRollingNoticeView ()
-
+{
+    BOOL _isAnimating;
+}
 @property (nonatomic, strong) NSMutableDictionary *cellClsDict;
 @property (nonatomic, strong) NSMutableArray *reuseCells;
 
@@ -54,6 +56,7 @@
 
 -(void) initVariables
 {
+    _isAnimating = NO;
     self.clipsToBounds = YES;
     _stayInterval = 2;
     [self addGestureRecognizer:self.tapGesture];
@@ -127,12 +130,9 @@
         return;
     }
     
-    if(![_willShowCell isKindOfClass:[QuickRollingNoticeCell class]] || _willShowCell == _currentCell)
-    {
-        _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
-        _willShowCell.frame = CGRectMake(0, h, w, h);
-        [self addSubview:_willShowCell];
-    }
+    _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
+    _willShowCell.frame = CGRectMake(0, h, w, h);
+    [self addSubview:_willShowCell];
     
     [self.reuseCells removeObject:_currentCell];
     [self.reuseCells removeObject:_willShowCell];
@@ -148,7 +148,6 @@
     {
         return;
     }
-    
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:_stayInterval target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
@@ -168,17 +167,20 @@
     if(_willShowCell)[_willShowCell removeFromSuperview];
     _currentCell = nil;
     _willShowCell = nil;
+    _isAnimating = NO;
     [self.reuseCells removeAllObjects];
 }
 
 - (void)timerHandle
 {
+    if(_isAnimating) return;
     [self layoutCurrentCellAndWillShowCell];
     _currentIndex ++;
     
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     
+    _isAnimating = YES;
     [UIView animateWithDuration:0.5 animations:^{
         _currentCell.frame = CGRectMake(0, -h, w, h);
         _willShowCell.frame = CGRectMake(0, 0, w, h);
@@ -189,6 +191,7 @@
             [self.reuseCells addObject:_currentCell];
             [_currentCell removeFromSuperview];
             _currentCell = _willShowCell;
+            _isAnimating = NO;
         }
     }];
 }
