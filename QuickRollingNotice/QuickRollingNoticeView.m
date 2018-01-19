@@ -191,8 +191,8 @@
             [self.reuseCells addObject:_currentCell];
             [_currentCell removeFromSuperview];
             _currentCell = _willShowCell;
-            _isAnimating = NO;
         }
+        _isAnimating = NO;
     }];
 }
 
