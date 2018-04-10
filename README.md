@@ -3,7 +3,10 @@
 [![Pod Platform](http://img.shields.io/cocoapods/p/QuickRollingNotice.svg?style=flat)](http://cocoadocs.org/docsets/QuickRollingNotice/)
 [![Pod License](http://img.shields.io/cocoapods/l/QuickRollingNotice.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![CocoaPods](https://img.shields.io/cocoapods/at/QuickRollingNotice.svg)](https://github.com/pcjbird/QuickRollingNotice)
+[![CocoaPods](https://img.shields.io/cocoapods/dt/QuickRollingNotice.svg)](https://github.com/pcjbird/QuickRollingNotice)
 [![GitHub release](https://img.shields.io/github/release/pcjbird/QuickRollingNotice.svg)](https://github.com/pcjbird/QuickRollingNotice/releases)
+[![GitHub release](https://img.shields.io/github/release-date/pcjbird/QuickRollingNotice.svg)](https://github.com/pcjbird/QuickRollingNotice/releases)
+[![Website](https://img.shields.io/website-pcjbird-down-green-red/https/shields.io.svg?label=author)](https://pcjbird.github.io)
 
 
 # QuickRollingNotice
