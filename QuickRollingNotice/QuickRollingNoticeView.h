@@ -31,12 +31,12 @@
 /**
  * @brief 数据源
  */
-@property (nonatomic, assign) id<QuickRollingNoticeViewDataSource> dataSource;
+@property (nonatomic, weak, nullable) id<QuickRollingNoticeViewDataSource> dataSource;
 
 /**
  * @brief 代理
  */
-@property (nonatomic, assign) id<QuickRollingNoticeViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id<QuickRollingNoticeViewDelegate> delegate;
 
 /**
  * @brief 停留时间 默认2秒

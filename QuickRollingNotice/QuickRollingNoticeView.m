@@ -106,6 +106,7 @@
 #pragma mark- rolling
 - (void)layoutCurrentCellAndWillShowCell
 {
+    if(!self.dataSource) return;
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
     if (_currentIndex > count - 1)
     {
@@ -143,8 +144,9 @@
     [self stopRoll];
     
     [self layoutCurrentCellAndWillShowCell];
+    if(!self.dataSource) return;
     NSInteger count = [self.dataSource numberOfRowsForRollingNoticeView:self];
-    if (count && count < 2)
+    if (count < 2)
     {
         return;
     }
@@ -199,11 +201,12 @@
 
 - (void)handleCellTapAction
 {
+    if(!self.dataSource) return;
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
     if (_currentIndex > count - 1) {
         _currentIndex = 0;
     }
-    if ([self.delegate respondsToSelector:@selector(didClickRollingNoticeView:forIndex:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didClickRollingNoticeView:forIndex:)]) {
         [self.delegate didClickRollingNoticeView:self forIndex:_currentIndex];
     }
 }

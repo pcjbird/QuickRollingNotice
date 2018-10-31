@@ -8,6 +8,9 @@
 //  框架名称:QuickRollingNotice
 //  框架功能: Roll Notice or Advertising, Customize cell as UITableViewCell supported. 滚动公告、广告，支持灵活自定义cell。
 //  修改记录:
+//     pcjbird    2018-10-30  Version:1.0.3 Build:201810310001
+//                            1.try fix some crash bugs
+//
 //     pcjbird    2018-01-19  Version:1.0.2 Build:201801190001
 //                            1.继续优化去除残影效果的方案
 //

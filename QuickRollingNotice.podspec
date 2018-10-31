@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "QuickRollingNotice"
-    s.version          = "1.0.2"
+    s.version          = "1.0.3"
     s.summary          = "滚动公告、广告，支持灵活自定义cell。"
     s.description      = <<-DESC
     Roll Notice or Advertising, Customize cell as UITableViewCell supported. 滚动公告、广告，支持灵活自定义cell。
